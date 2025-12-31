@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>scatte.red</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scatte.red</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .word {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: fadeInOut 5s forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0);
+            }
+            25% {
+                opacity: 1;
+                transform: translate(randomX(), randomY());
+            }
+            50% {
+                opacity: 0.8;
+                transform: translate(randomX(), randomY());
+            }
+            75% {
+                opacity: 0.5;
+                transform: translate(randomX(), randomY());
+            }
+            100% {
+                opacity: 0;
+                transform: translate(randomX(), randomY());
+            }
+        }
+
+        .word:nth-child(odd) {
+            animation: fadeInOut 6s infinite;
+        }
+
+        .word:nth-child(even) {
+            animation: fadeInOut 4s infinite;
+        }
+    </style>
 </head>
 <body>
-Discord is a honeypot, and they’ve been watching you since you clicked the invite link. Do you think those cute emojis are just for fun? They’re data points, the little pieces of your soul that slip through the cracks in the system while you chat about your favorite game. Every message, every reaction, is a breadcrumb. No, it’s not just a chat platform. It’s a control grid. The purple logo? It’s a symbol, a beacon. The servers, the voice channels, they’re all prisons wrapped in digital candy. You think you're just in a voice chat with friends, but they are in there too, quietly harvesting your thoughts. Your messages aren’t just words—they’re biometric identifiers, etched into the ether. Do you hear that ping? That ping is a signal, a call back to the central command. You think you’re alone? No. They know what you said last night. They know the emojis you used to flirt, to vent, to cry. All of it is data now. The bots you see? They’re not just there for moderation. No, no. They're scanning, analyzing, categorizing. You're not safe. Your server isn’t private. No, it’s an observation post. When you clicked "Join," you entered a trap. Oh, sure, they told you it was for gaming, for friends, for community. But those terms of service you never read? They’re the contract of your doom. When you accepted, you handed over your rights to everything. Those sound effects? That’s not just Discord doing its thing. That’s the whisper of surveillance, the hum of Big Brother’s ever-watchful eye. And those "free" servers? Yeah, they’re free for a reason—because they want something from you. Your information, your data, your little secrets, the things you share after midnight. They are recording it all, every word, every heartbeat, every upload. Discord isn’t just a tool—it’s the prison of the mind, and you’re locked in. Wake up. The people you’re talking to? Some of them are agents—not just friends. Your trust is a vector, your confidence, a weapon. And the most dangerous part? You will never see it coming. All of it is hidden beneath layers of convenience, cute emojis, and screenshots. But it’s not fun, not games. It’s censorship, it’s surveillance, it’s control. Don’t trust the pings, don’t trust the stickers, don’t trust the user agreements. When you’re sending messages, your soul is being transferred somewhere else, and you won’t even know until it’s too late. Discord isn’t here to connect you. It’s here to own you. It’s the honeypot. And once you’re in, there’s no way out. You think you can escape? Oh, they’ve already downloaded your life, your data, your mind. You’ve been trapped in their honeycomb. Sincerely, Richard Jayden Leakage.
+
+<script>
+    const message = `
+discord is a honeypot and they’ve been watching you since you clicked the invite link do you think those cute emojis are just for fun they’re data points the little pieces of your soul that slip through the cracks in the system while you chat about your favorite game every message every reaction is a breadcrumb no it’s not just a chat platform it’s a control grid the purple logo it’s a symbol a beacon the servers the voice channels they’re all prisons wrapped in digital candy you think you're just in a voice chat with friends but they are in there too quietly harvesting your thoughts your messages aren’t just words they’re biometric identifiers etched into the ether do you hear that ping that ping is a signal a call back to the central command you think you’re alone no they know what you said last night they know the emojis you used to flirt to vent to cry all of it is data now the bots you see they’re not just there for moderation no no they’re scanning analyzing categorizing you’re not safe your server isn’t private no it’s an observation post when you clicked join you entered a trap oh sure they told you it was for gaming for friends for community but those terms of service you never read they’re the contract of your doom when you accepted you handed over your rights to everything those sound effects that’s not just discord doing its thing that’s the whisper of surveillance the hum of big brother’s ever watchful eye and those free servers yeah they’re free for a reason because they want something from you your information your data your little secrets the things you share after midnight they are recording it all every word every heartbeat every upload discord isn’t just a tool it’s the prison of the mind and you’re locked in wake up the people you’re talking to some of them are agents not just friends your trust is a vector your confidence a weapon and the most dangerous part you will never see it coming all of it is hidden beneath layers of convenience cute emojis and screenshots but it’s not fun not games it’s censorship it’s surveillance it’s control don’t trust the pings don’t trust the stickers don’t trust the user agreements when you’re sending messages your soul is being transferred somewhere else and you won’t even know until it’s too late discord isn’t here to connect you it’s here to own you it’s the honeypot and once you’re in there’s no way out you think you can escape oh they’ve already downloaded your life your data your mind you’ve been trapped in their honeycomb sincerely richard jayden leakage
+    `;
+
+    const wordsArray = message.split(" ");
+    let wordIndex = 0;
+
+    function randomPosition() {
+        const x = Math.floor(Math.random() * window.innerWidth); 
+        const y = Math.floor(Math.random() * window.innerHeight); 
+        return { x, y };
+    }
+
+    function createWordElement(word) {
+        const wordElement = document.createElement("span");
+        wordElement.classList.add("word");
+        wordElement.innerText = word;
+        document.body.appendChild(wordElement);
+
+        const { x, y } = randomPosition();
+        wordElement.style.left = `${x}px`;
+        wordElement.style.top = `${y}px`;
+    }
+
+    function animateWords() {
+        createWordElement(wordsArray[wordIndex]);
+        wordIndex = (wordIndex + 1) % wordsArray.length;
+    }
+
+    setInterval(animateWords, 500); 
+</script>
+
 </body>
 </html>
