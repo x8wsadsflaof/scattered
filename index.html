@@ -3,180 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>filte.red</title>
-<meta property="og:title" content="@filte.red">
-<meta property="og:description" content="im richard;)">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<title>scatte.red</title>
 <style>
-  html {
-    outline: 4px solid rgba(255,255,255,0.5);
-    outline-offset: -4px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-  html, body {
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #fff;
     font-family: 'Press Start 2P', monospace;
-    background-color: #000000;
-    color: rgba(255,255,255,0.9);
-    overflow: hidden;
-  }
-
-  #front-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    text-align: center;
-    background-color: #000000;
-  }
+    min-height: 100vh;
+}
 
-  #front-page pre {
-    font-size: 12px;
-    line-height: 14px;
+.main {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 50px;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.pfp-container {
+    flex: 0 0 150px;
+}
+
+.pfp-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #000a;
+    border-radius: 8px;
+}
+
+.ascii-container {
+    flex: 1;
+    height: 150px; 
+    background: #1e1e1e;
+    padding: 10px;
+    font-family: monospace;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    text-align: center;
+    border-radius: 8px;
+    border-left: 4px solid #2f3136;
+    border-top: 4px solid #2f3136;
+    border-bottom: 4px solid #2f3136;
+    overflow: hidden;
+    font-size: 11px; 
+    color: #FFFFFF;
+    font-weight: bold;
+
+}
+.names {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    font-family: monospace;
+    font-size: 6px; 
+    color: #FFFFFF; 
+    text-align: center;
+    white-space: pre; 
+}
+
+.names pre {
     margin: 0;
-    color: rgba(255,255,255,0.3);
-    cursor: default;
-    transition: transform 0.3s, color 0.2s;
-  }
-
-  #front-page pre:hover { transform: scale(0.95); color: rgba(255,255,255,0.2); }
-
-  #enter-text {
-    margin-top: 20px;
-    font-size: 10px;
-    color: rgba(255,255,255,0.3);
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  #enter-text:hover {
-    color: rgba(255,255,255,0.15);
-    transform: scale(0.95);
-  }
-
-  #main-page {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    color: rgba(255,255,255,0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  #ascii-richard {
-    font-size: 10px;
-    line-height: 10px;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-    transition: transform 0.3s, color 0.2s;
-    animation: flicker 1.5s infinite;
-  }
-
-  #ascii-richard:hover { transform: scale(0.95); color: rgba(255,255,255,0.2); }
-
-  .description {
-    font-size: 12px;
-    height: 30px;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid rgba(255,255,255,0.3);
-    letter-spacing: 1px;
-    animation: blink 1s infinite step-end, flicker 1.2s infinite;
-  }
-
-  .divider { opacity: 0.3; }
-
-  @keyframes blink { 50% { border-color: transparent; } }
-  @keyframes flicker { 0%,19%,21%,23%,25%,54%,56%,100% { opacity:1; } 20%,22%,24%,55% { opacity:0.4; } }
-
+}
 </style>
 </head>
 <body>
-<div id="front-page">
-  <pre>   ▄████████  ▄█   ▄█           ███        ▄████████    ▄████████    ▄████████ ████████▄  
-    ███    ███ ███  ███       ▀█████████▄   ███    ███   ███    ███   ███    ███ ███   ▀███ 
-    ███    █▀  ███▌ ███          ▀███▀▀██   ███    █▀    ███    ███   ███    █▀  ███    ███ 
-   ▄███▄▄▄     ███▌ ███           ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀  ▄███▄▄▄     ███    ███ 
-  ▀▀███▀▀▀     ███▌ ███           ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀▀███▀▀▀     ███    ███ 
-    ███        ███  ███           ███       ███    █▄  ▀███████████   ███    █▄  ███    ███ 
-    ███        ███  ███▌    ▄     ███       ███    ███   ███    ███   ███    ███ ███   ▄███ 
-    ███        █▀   █████▄▄██    ▄████▀     ██████████   ███    ███   ██████████ ████████▀  
-                    ▀                                    ███    ███</pre>
-  <div id="enter-text">[ CLICK TO ENTER ]</div>
-</div>
+    <div class="main">
+        <!-- Left: Profile Picture -->
+        <div class="pfp-container">
+            <img src="pfp.png" alt="Profile Picture">
+        </div>
 
-<div id="main-page">
-  <pre id="ascii-richard">   ▄████████  ▄█   ▄████████    ▄█    █▄       ▄████████    ▄████████ ████████▄  
-    ███    ███ ███  ███    ███   ███    ███     ███    ███   ███    ███ ███   ▀███ 
-    ███    ███ ███▌ ███    █▀    ███    ███     ███    ███   ███    ███ ███    ███ 
-   ▄███▄▄▄▄██▀ ███▌ ███         ▄███▄▄▄▄███▄▄   ███    ███  ▄███▄▄▄▄██▀ ███    ███ 
-  ▀▀███▀▀▀▀▀   ███▌ ███        ▀▀███▀▀▀▀███▀  ▀███████████ ▀▀███▀▀▀▀▀   ███    ███ 
-  ▀███████████ ███  ███    █▄    ███    ███     ███    ███ ▀███████████ ███    ███ 
-    ███    ███ ███  ███    ███   ███    ███     ███    ███   ███    ███ ███   ▄███ 
-    ███    ███ █▀   ████████▀    ███    █▀      ███    █▀    ███    ███ ████████▀  
-    ███    ███                                               ███    ███</pre>
-  <div class="description" id="typewriter"></div>
-</div>
+        <!-- Right: ASCII placeholder -->
+        <div class="ascii-container">
+<pre>     ▗▄▖ ▗▖           ▗▖                 ▄▄              ▗▖          
+    ▗▛▀▜ ▐▌           ▐▌                █▀▀▌             ▐▌          
+    ▐▙   ▐▙██▖ ▟██▖ ▟█▟▌ ▟█▙ █   █     ▐▌    ▟██▖ █▟█▌ ▟█▟▌ ▟█▙ ▐▙██▖
+     ▜█▙ ▐▛ ▐▌ ▘▄▟▌▐▛ ▜▌▐▛ ▜▌▜ █ ▛     ▐▌▗▄▖ ▘▄▟▌ █▘  ▐▛ ▜▌▐▙▄▟▌▐▛ ▐▌
+       ▜▌▐▌ ▐▌▗█▀▜▌▐▌ ▐▌▐▌ ▐▌▐▙█▟▌     ▐▌▝▜▌▗█▀▜▌ █   ▐▌ ▐▌▐▛▀▀▘▐▌ ▐▌
+    ▐▄▄▟▘▐▌ ▐▌▐▙▄█▌▝█▄█▌▝█▄█▘▝█ █▘      █▄▟▌▐▙▄█▌ █   ▝█▄█▌▝█▄▄▌▐▌ ▐▌
+     ▀▀▘ ▝▘ ▝▘ ▀▀▝▘ ▝▀▝▘ ▝▀▘  ▀ ▀        ▀▀  ▀▀▝▘ ▀    ▝▀▝▘ ▝▀▀ ▝▘ ▝▘</pre>
+        </div>
+    </div>
 
-<audio id="bg-music" src="song.mp3" preload="auto" loop></audio>
-
-<script>
-const enterText=document.getElementById('enter-text');
-const frontPage=document.getElementById('front-page');
-const mainPage=document.getElementById('main-page');
-const bgMusic=document.getElementById('bg-music');
-const messages = [
-  "C | PYTHON | JAVASCRIPT | RUBY",
-  "im so lonely"
-];
-
-enterText.addEventListener('click', ()=>{
-  frontPage.style.display='none';
-  mainPage.style.display='flex';
-  bgMusic.play().catch(()=>{console.log("Audio autoplay blocked");});
-  startTypewriter();
-});
-
-function startTypewriter(){
-  const el = document.getElementById('typewriter');
-  let msgIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  function type(){
-    let msg = messages[msgIndex];
-    if(!deleting){
-      charIndex++;
-      el.innerHTML = formatSeparators(msg.slice(0,charIndex));
-      if(charIndex === msg.length){
-        deleting = true;
-        setTimeout(type, 1000);
-        return;
-      }
-    } else {
-      charIndex--;
-      el.innerHTML = formatSeparators(msg.slice(0,charIndex));
-      if(charIndex === 0){
-        deleting = false;
-        msgIndex = (msgIndex + 1) % messages.length;
-      }
-    }
-    setTimeout(type, 100);
-  }
-
-  function formatSeparators(str){
-    return str.replace(/\|/g,'<span class="divider">|</span>');
-  }
-
-  type();
-}
-</script>
+    <div class="names">
+<pre>   ▄████████  ▄█   ▄████████    ▄█    █▄       ▄████████    ▄████████ ████████▄  
+      ███    ███ ███  ███    ███   ███    ███     ███    ███   ███    ███ ███   ▀███ 
+      ███    ███ ███▌ ███    █▀    ███    ███     ███    ███   ███    ███ ███    ███ 
+     ▄███▄▄▄▄██▀ ███▌ ███         ▄███▄▄▄▄███▄▄   ███    ███  ▄███▄▄▄▄██▀ ███    ███ 
+    ▀▀███▀▀▀▀▀   ███▌ ███        ▀▀███▀▀▀▀███▀  ▀███████████ ▀▀███▀▀▀▀▀   ███    ███ 
+    ▀███████████ ███  ███    █▄    ███    ███     ███    ███ ▀███████████ ███    ███ 
+      ███    ███ ███  ███    ███   ███    ███     ███    ███   ███    ███ ███   ▄███ 
+      ███    ███ █▀   ████████▀    ███    █▀      ███    █▀    ███    ███ ████████▀  
+      ███    ███                                               ███    ███            </pre>
+<pre>     ▄█    ▄████████ ▄██   ▄   ████████▄     ▄████████ ███▄▄▄▄   
+    ███   ███    ███ ███   ██▄ ███   ▀███   ███    ███ ███▀▀▀██▄ 
+    ███   ███    ███ ███▄▄▄███ ███    ███   ███    █▀  ███   ███ 
+    ███   ███    ███ ▀▀▀▀▀▀███ ███    ███  ▄███▄▄▄     ███   ███ 
+    ███ ▀███████████ ▄██   ███ ███    ███ ▀▀███▀▀▀     ███   ███ 
+    ███   ███    ███ ███   ███ ███    ███   ███    █▄  ███   ███ 
+    ███   ███    ███ ███   ███ ███   ▄███   ███    ███ ███   ███ 
+█▄ ▄███   ███    █▀   ▀█████▀  ████████▀    ██████████  ▀█   █▀  
+▀▀▀▀▀▀                                                           </pre>
+<pre> ▄█          ▄████████    ▄████████    ▄█   ▄█▄    ▄████████    ▄██████▄     ▄████████ 
+    ███         ███    ███   ███    ███   ███ ▄███▀   ███    ███   ███    ███   ███    ███ 
+    ███         ███    █▀    ███    ███   ███▐██▀     ███    ███   ███    █▀    ███    █▀  
+    ███        ▄███▄▄▄       ███    ███  ▄█████▀      ███    ███  ▄███         ▄███▄▄▄     
+    ███       ▀▀███▀▀▀     ▀███████████ ▀▀█████▄    ▀███████████ ▀▀███ ████▄  ▀▀███▀▀▀     
+    ███         ███    █▄    ███    ███   ███▐██▄     ███    ███   ███    ███   ███    █▄  
+    ███▌    ▄   ███    ███   ███    ███   ███ ▀███▄   ███    ███   ███    ███   ███    ███ 
+    █████▄▄██   ██████████   ███    █▀    ███   ▀█▀   ███    █▀    ████████▀    ██████████ 
+    ▀                                     ▀                                                </pre>
+    </div>
 </body>
 </html>
