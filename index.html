@@ -1,96 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>scatte.red</title>
+
     <style>
+        html,
         body {
             margin: 0;
-            background-color: black;
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            height: 100vh;
+            padding: 0;
+            background: #e5e5e5;
+            font-family: "Times New Roman", Georgia, serif;
+            height: 100%;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+
+        .page {
+            width: 816px;
+            height: 1056px;
+            background: #ffffff;
+            margin: 40px auto;
+            padding: 96px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             position: relative;
+            overflow: hidden;
         }
 
-        .word {
+        .text {
+            font-size: 14pt;
+            line-height: 1.6;
+            color: #111;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: black;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* BIG AS FUCK flicker */
+        .flicker {
+            color: red;
+            font-size: 80px;
+            font-weight: bold;
+            line-height: 1;
+            display: inline-block;
+            vertical-align: middle;
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.25;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .note {
             position: absolute;
-            font-size: 30px;
+            right: -180px;
+            width: 160px;
+            font-size: 12px;
+            color: red;
+            font-family: Arial, sans-serif;
             opacity: 0;
-            animation: fadeInOut 5s forwards;
+            animation: noteFade 3.5s forwards;
+            pointer-events: none;
         }
 
-        @keyframes fadeInOut {
+        @keyframes noteFade {
             0% {
                 opacity: 0;
-                transform: translate(0, 0);
+                transform: translateX(10px);
             }
-            25% {
+
+            20% {
                 opacity: 1;
-                transform: translate(randomX(), randomY());
             }
-            50% {
-                opacity: 0.8;
-                transform: translate(randomX(), randomY());
+
+            80% {
+                opacity: 1;
             }
-            75% {
-                opacity: 0.5;
-                transform: translate(randomX(), randomY());
-            }
+
             100% {
                 opacity: 0;
-                transform: translate(randomX(), randomY());
             }
-        }
-
-        .word:nth-child(odd) {
-            animation: fadeInOut 6s infinite;
-        }
-
-        .word:nth-child(even) {
-            animation: fadeInOut 4s infinite;
         }
     </style>
 </head>
+
 <body>
 
-<script>
-    const message = `
-discord is a honeypot and they’ve been watching you since you clicked the invite link do you think those cute emojis are just for fun they’re data points the little pieces of your soul that slip through the cracks in the system while you chat about your favorite game every message every reaction is a breadcrumb no it’s not just a chat platform it’s a control grid the purple logo it’s a symbol a beacon the servers the voice channels they’re all prisons wrapped in digital candy you think you're just in a voice chat with friends but they are in there too quietly harvesting your thoughts your messages aren’t just words they’re biometric identifiers etched into the ether do you hear that ping that ping is a signal a call back to the central command you think you’re alone no they know what you said last night they know the emojis you used to flirt to vent to cry all of it is data now the bots you see they’re not just there for moderation no no they’re scanning analyzing categorizing you’re not safe your server isn’t private no it’s an observation post when you clicked join you entered a trap oh sure they told you it was for gaming for friends for community but those terms of service you never read they’re the contract of your doom when you accepted you handed over your rights to everything those sound effects that’s not just discord doing its thing that’s the whisper of surveillance the hum of big brother’s ever watchful eye and those free servers yeah they’re free for a reason because they want something from you your information your data your little secrets the things you share after midnight they are recording it all every word every heartbeat every upload discord isn’t just a tool it’s the prison of the mind and you’re locked in wake up the people you’re talking to some of them are agents not just friends your trust is a vector your confidence a weapon and the most dangerous part you will never see it coming all of it is hidden beneath layers of convenience cute emojis and screenshots but it’s not fun not games it’s censorship it’s surveillance it’s control don’t trust the pings don’t trust the stickers don’t trust the user agreements when you’re sending messages your soul is being transferred somewhere else and you won’t even know until it’s too late discord isn’t here to connect you it’s here to own you it’s the honeypot and once you’re in there’s no way out you think you can escape oh they’ve already downloaded your life your data your mind you’ve been trapped in their honeycomb sincerely richard jayden leakage
-    `;
+    <div class="page">
+        <div class="text" id="docText">
+            discord is a honeypot and they’ve been watching you since you clicked the invite link do you think those
+            cute emojis are just for fun they’re data points the little pieces of your soul that slip through the cracks
+            in the system while you chat about your favorite game every message every reaction is a breadcrumb no it’s
+            not just a chat platform it’s a control grid the purple logo it’s a symbol a beacon the servers the voice
+            channels they’re all prisons wrapped in digital candy you think you're just in a voice chat with friends but
+            they are in there too quietly harvesting your thoughts your messages aren’t just words they’re biometric
+            identifiers etched into the ether do you hear that ping that ping is a signal a call back to the central
+            command you think you’re alone no they know what you said last night they know the emojis you used to flirt
+            to vent to cry all of it is data now the bots you see they’re not just there for moderation no no they’re
+            scanning analyzing categorizing you’re not safe your server isn’t private no it’s an observation post when
+            you clicked join you entered a trap oh sure they told you it was for gaming for friends for community but
+            those terms of service you never read they’re the contract of your doom when you accepted you handed over
+            your rights to everything those sound effects that’s not just discord doing its thing that’s the whisper of
+            surveillance the hum of big brother’s ever watchful eye and those free servers yeah they’re free for a
+            reason because they want something from you your information your data your little secrets the things you
+            share after midnight they are recording it all every word every heartbeat every upload discord isn’t just a
+            tool it’s the prison of the mind and you’re locked in wake up the people you’re talking to some of them are
+            agents not just friends your trust is a vector your confidence a weapon and the most dangerous part you will
+            never see it coming all of it is hidden beneath layers of convenience cute emojis and screenshots but it’s
+            not fun not games it’s censorship it’s surveillance it’s control don’t trust the pings don’t trust the
+            stickers don’t trust the user agreements when you’re sending messages your soul is being transferred
+            somewhere else and you won’t even know until it’s too late discord isn’t here to connect you it’s here to
+            own you it’s the honeypot and once you’re in there’s no way out you think you can escape oh they’ve already
+            downloaded your life your data your mind you’ve been trapped in their honeycomb
 
-    const wordsArray = message.split(" ");
-    let wordIndex = 0;
+            <br><br>
+            sincerely,<br>
+            richard jayden leakage<span class="cursor"></span>
+        </div>
+    </div>
 
-    function randomPosition() {
-        const x = Math.floor(Math.random() * window.innerWidth); 
-        const y = Math.floor(Math.random() * window.innerHeight); 
-        return { x, y };
-    }
+    <script>
+        const doc = document.getElementById("docText");
 
-    function createWordElement(word) {
-        const wordElement = document.createElement("span");
-        wordElement.classList.add("word");
-        wordElement.innerText = word;
-        document.body.appendChild(wordElement);
+        const originalHTML = doc.innerHTML;
+        const originalWords = originalHTML.split(" ");
 
-        const { x, y } = randomPosition();
-        wordElement.style.left = `${x}px`;
-        wordElement.style.top = `${y}px`;
-    }
+        const replacements = [
+            "HELP ME PLEASE",
+            "TIMES ALMOST UP",
+            "THEY SEE YOU",
+            "YOURE BEING MONITORED",
+            "WHY ARE YOU STILL HERE",
+            "WE LOST HIM",
+            "DONT TRUST",
+        ];
 
-    function animateWords() {
-        createWordElement(wordsArray[wordIndex]);
-        wordIndex = (wordIndex + 1) % wordsArray.length;
-    }
+        function flickerWord() {
+            let words = [...originalWords];
 
-    setInterval(animateWords, 500); 
-</script>
+            let index = Math.floor(Math.random() * words.length);
+            let replacement = replacements[Math.floor(Math.random() * replacements.length)];
+
+            words[index] = `<span class="flicker">${replacement}</span>`;
+            doc.innerHTML = words.join(" ");
+
+            setTimeout(() => {
+                doc.innerHTML = originalHTML;
+            }, 350);
+        }
+
+        function spawnNote() {
+            const notes = [
+                "HELP ME PLEASE",
+                "TIMES ALMOST UP",
+                "THEY SEE YOU",
+                "YOURE BEING MONITORED",
+                "WHY ARE YOU STILL HERE",
+                "WE LOST HIM",
+                "DONT TRUST",
+            ];
+
+            const note = document.createElement("div");
+            note.className = "note";
+            note.innerText = notes[Math.floor(Math.random() * notes.length)];
+            note.style.top = Math.random() * 85 + "%";
+            document.querySelector(".page").appendChild(note);
+            setTimeout(() => note.remove(), 3500);
+        }
+
+        function randomInterval() {
+            flickerWord();
+            setTimeout(randomInterval, 3000 + Math.random() * 2000);
+        }
+
+        randomInterval();
+        setInterval(spawnNote, 3500);
+    </script>
 
 </body>
+
 </html>
