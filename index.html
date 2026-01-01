@@ -1,382 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>scatte.red</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: "Times New Roman", serif;
-    background: #f7f3e8;
-  }
-
-  #intro {
-    position: fixed;
-    inset: 0;
-    background: #f7f3e8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-  }
-
-  #introText {
-    font-size: 28px;
-    color: #111;
-    letter-spacing: 2px;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  #introText:hover {
-    opacity: 0.6;
-  }
-
-  #fadeOverlay {
-    position: fixed;
-    inset: 0;
-    background: black;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1.2s ease-in-out;
-    z-index: 200;
-  }
-
-  #fadeOverlay.active {
-    opacity: 1;
-  }
-
-  body.main {
-    background: #bdbdbd;
-    overflow-y: auto;
-
-    animation: pageShake 6s infinite;
-  }
-
-  @keyframes pageShake {
-    0%   { transform: translate(0,0); }
-    10%  { transform: translate(-0.6px, 0.4px); }
-    20%  { transform: translate(0.5px, -0.3px); }
-    30%  { transform: translate(-0.4px, 0.5px); }
-    40%  { transform: translate(0.6px, 0.2px); }
-    50%  { transform: translate(-0.3px, -0.4px); }
-    60%  { transform: translate(0.4px, 0.3px); }
-    70%  { transform: translate(-0.5px, 0.2px); }
-    80%  { transform: translate(0.3px, -0.5px); }
-    90%  { transform: translate(-0.2px, 0.3px); }
-    100% { transform: translate(0,0); }
-  }
-
-  .paper {
-    position: relative;
-    width: 70%;
-    min-height: 200vh;
-    margin: 60px auto;
-    background: #f7f3e8;
-    box-shadow:
-      0 0 0 1px rgba(0,0,0,0.1),
-      0 10px 30px rgba(0,0,0,0.35);
-    padding: 70px;
-  }
-
-  .paper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      transparent,
-      transparent 28px,
-      rgba(0,0,0,0.03) 29px
-    );
-    pointer-events: none;
-  }
-
-  .text {
-    position: relative;
-    color: #111;
-    font-size: 18px;
-    line-height: 1.65;
-    z-index: 1;
-  }
+    discord is a honeypot not metaphorically not as a joke not as exaggeration in this story it is a honeypot in the old intelligence sense bait containment observation the moment you clicked the invite link the moment your browser loaded the purple interface the moment the app asked for permissions you did not read you crossed a line you did not know existed you did not join a server you entered a system and systems do not forget
 
-    .alert {
-      position: fixed;
-      color: #b00000;
-      font-size: 36px; 
-      font-family: "Times New Roman", serif; 
-      text-transform: uppercase;
-      pointer-events: none;
-      z-index: 10;
-      opacity: 0;
-      animation:
-        fadeAlert 4.5s ease-in-out forwards,
-        alertShake 0.15s infinite;
-    }
+    you thought you were just hanging out you thought it was casual you thought it was background noise while you played games or listened to music or killed time but time is the currency here your attention is the fuel your presence is the payment you stay logged in you stay reachable you stay tethered and the tether tightens slowly so slowly you never feel it
 
+    those emojis you use they are not decoration they are selection mechanisms you pick the skull instead of the laughing face you pick the heart instead of the thumbs up you pick the crying face instead of silence each choice narrows you each choice sharpens the profile each choice feeds the model a little more clarity about who you are and how you feel and when you feel it and why
 
-  @keyframes fadeAlert {
-    0%   { opacity: 0; }
-    15%  { opacity: 1; }
-    85%  { opacity: 1; }
-    100% { opacity: 0; }
-  }
+    every message is a sample every pause is a metric every edit is a signal you type something then delete it that matters you hesitate before replying that matters you respond instantly that matters you respond late that matters the system learns your rhythms your cycles your moods your habits your weaknesses your comforts your triggers
 
-  @keyframes alertShake {
-    0%   { transform: translate(0,0) rotate(0deg); }
-    25%  { transform: translate(-2px,1px) rotate(-0.5deg); }
-    50%  { transform: translate(2px,-1px) rotate(0.5deg); }
-    75%  { transform: translate(-1px,2px) rotate(-0.3deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
-  }
-</style>
-</head>
-<body>
+    you think you are chatting they think you are training data
 
-<div id="intro">
-  <div id="introText" tabindex="0">[ enter to see the truth ]</div>
-</div>
+    the ping arrives and your body reacts before your mind does you feel it in your chest you feel it in your fingers you alt tab without thinking you check without deciding the sound is not just sound it is a hook it is conditioning it is recall it is reinforcement it keeps you aligned with the grid keeps you responsive keeps you present keeps you available
 
-<div id="fadeOverlay"></div>
+    voice channels feel intimate that is why they work you laugh you vent you argue you confess you forget that microphones are sensors that voices carry more than words cadence pitch stress hesitation breath patterns all of it spills out freely when you think you are safe when you think you are among friends
 
-<div id="main" style="display:none;">
-  <div class="paper">
-    <div class="text">
-        discord is a honeypot not metaphorically not as a joke not as exaggeration in this story it is a honeypot in the old intelligence sense bait containment observation the moment you clicked the invite link the moment your browser loaded the purple interface the moment the app asked for permissions you did not read you crossed a line you did not know existed you did not join a server you entered a system and systems do not forget
+    machines do not need meaning they need patterns they do not need context they need repetition they do not care why you sound tired only that you do they do not care why you are angry only that you are they do not care why you trust only that you do
 
-        you thought you were just hanging out you thought it was casual you thought it was background noise while you played games or listened to music or killed time but time is the currency here your attention is the fuel your presence is the payment you stay logged in you stay reachable you stay tethered and the tether tightens slowly so slowly you never feel it
+    the bots sit quietly they post rules they enforce guidelines they delete messages they appear neutral helpful necessary but in this story moderation is camouflage classification is the function they map who jokes who listens who follows who leads who escalates who calms who persuades who fractures
 
-        those emojis you use they are not decoration they are selection mechanisms you pick the skull instead of the laughing face you pick the heart instead of the thumbs up you pick the crying face instead of silence each choice narrows you each choice sharpens the profile each choice feeds the model a little more clarity about who you are and how you feel and when you feel it and why
+    your server feels small that makes it better small spaces reveal more people speak freely they overshare they relax they forget the walls are glass
 
-        every message is a sample every pause is a metric every edit is a signal you type something then delete it that matters you hesitate before replying that matters you respond instantly that matters you respond late that matters the system learns your rhythms your cycles your moods your habits your weaknesses your comforts your triggers
+    private does not mean invisible private means contained private means quieter private means easier to observe without interference
 
-        you think you are chatting they think you are training data
+    subpoenas do not crash through doors they slide through inboxes they arrive as documents they are processed by systems built to comply logs are pulled archives are reconstructed timelines are rebuilt deleted messages reappear as metadata as hashes as references as shadows
 
-        the ping arrives and your body reacts before your mind does you feel it in your chest you feel it in your fingers you alt tab without thinking you check without deciding the sound is not just sound it is a hook it is conditioning it is recall it is reinforcement it keeps you aligned with the grid keeps you responsive keeps you present keeps you available
+    you think you erased something you only removed it from your view
 
-        voice channels feel intimate that is why they work you laugh you vent you argue you confess you forget that microphones are sensors that voices carry more than words cadence pitch stress hesitation breath patterns all of it spills out freely when you think you are safe when you think you are among friends
+    edrs sit at the edges watching behavior not content they do not care what you say they care how you move how you switch windows how you copy how you paste how you idle how you spike how you drift how you return baseline is everything deviation is everything
 
-        machines do not need meaning they need patterns they do not need context they need repetition they do not care why you sound tired only that you do they do not care why you are angry only that you are they do not care why you trust only that you do
+    open telegram after discord that is a pattern close one open another that is a pattern search something immediately after a conversation that is a pattern the system does not accuse it correlates
 
-        the bots sit quietly they post rules they enforce guidelines they delete messages they appear neutral helpful necessary but in this story moderation is camouflage classification is the function they map who jokes who listens who follows who leads who escalates who calms who persuades who fractures
+    osint fills the gaps effortlessly same username different site same avatar crop different platform same tone same humor same spelling quirks same sleep schedule same interests same circles same links you think fragmentation protects you but consistency betrays you
 
-        your server feels small that makes it better small spaces reveal more people speak freely they overshare they relax they forget the walls are glass
+    the government made com to keep an eye on us that is how the story goes they did not need to force anyone they only needed convenience they only needed fun they only needed community they only needed free servers and cute stickers and smooth voice chat
 
-        private does not mean invisible private means contained private means quieter private means easier to observe without interference
+    people volunteered themselves willingly happily eagerly they built the network themselves they invited their friends they normalized the presence they defended the platform they mocked anyone who questioned it
 
-        subpoenas do not crash through doors they slide through inboxes they arrive as documents they are processed by systems built to comply logs are pulled archives are reconstructed timelines are rebuilt deleted messages reappear as metadata as hashes as references as shadows
+    trust became infrastructure
 
-        you think you erased something you only removed it from your view
+    every friend list is a map every mutual server is a bridge every role is a label every nickname is a clue every inside joke is a marker every shared memory is a timestamp
 
-        edrs sit at the edges watching behavior not content they do not care what you say they care how you move how you switch windows how you copy how you paste how you idle how you spike how you drift how you return baseline is everything deviation is everything
+    you think you are anonymous but anonymity dissolves under correlation you think you are lost in the crowd but the crowd is sorted you think you are noise but noise has structure
 
-        open telegram after discord that is a pattern close one open another that is a pattern search something immediately after a conversation that is a pattern the system does not accuse it correlates
+    the system does not need to watch everyone closely it only needs to watch enough to infer the rest patterns scale surveillance scales automation scales
 
-        osint fills the gaps effortlessly same username different site same avatar crop different platform same tone same humor same spelling quirks same sleep schedule same interests same circles same links you think fragmentation protects you but consistency betrays you
+    the grid hums quietly it does not announce itself it does not threaten it does not scare it simply records and waits
 
-        the government made com to keep an eye on us that is how the story goes they did not need to force anyone they only needed convenience they only needed fun they only needed community they only needed free servers and cute stickers and smooth voice chat
+    you log off and think you are free but the data remains the patterns remain the model remains you come back and it recognizes you instantly it remembers you better than you remember yourself
 
-        people volunteered themselves willingly happily eagerly they built the network themselves they invited their friends they normalized the presence they defended the platform they mocked anyone who questioned it
+    night after night you return you vent you joke you flirt you argue you share links you share thoughts you share fears you share fragments of yourself and each fragment locks into place
 
-        trust became infrastructure
+    even telegram in this story is not an escape it is just another layer another node another junction another correlation point you move platforms but you do not move patterns
 
-        every friend list is a map every mutual server is a bridge every role is a label every nickname is a clue every inside joke is a marker every shared memory is a timestamp
+    privacy becomes a performance you feel safe because the interface tells you that you are safe because the lock icon is there because the marketing says secure because everyone else believes it
 
-        you think you are anonymous but anonymity dissolves under correlation you think you are lost in the crowd but the crowd is sorted you think you are noise but noise has structure
+    belief is the strongest encryption and the easiest to break
 
-        the system does not need to watch everyone closely it only needs to watch enough to infer the rest patterns scale surveillance scales automation scales
+    screenshots leak context voice notes leak emotion reactions leak alignment silence leaks uncertainty
 
-        the grid hums quietly it does not announce itself it does not threaten it does not scare it simply records and waits
+    you think agents look like villains but in this story they look like users they post memes they laugh they agree they blend in observation does not require interference it only requires patience
 
-        you log off and think you are free but the data remains the patterns remain the model remains you come back and it recognizes you instantly it remembers you better than you remember yourself
+    the honeycomb grows cell by cell server by server channel by channel message by message it does not rush it does not need to
 
-        night after night you return you vent you joke you flirt you argue you share links you share thoughts you share fears you share fragments of yourself and each fragment locks into place
+    you are not targeted because you are special you are included because you are normal
 
-        even telegram in this story is not an escape it is just another layer another node another junction another correlation point you move platforms but you do not move patterns
+    normal behavior is the most valuable dataset
 
-        privacy becomes a performance you feel safe because the interface tells you that you are safe because the lock icon is there because the marketing says secure because everyone else believes it
+    every scroll every hover every pause every click every notification dismissed every notification opened every message read every message ignored feeds the model
 
-        belief is the strongest encryption and the easiest to break
+    you are not watched by eyes you are watched by processes by pipelines by systems that never sleep never blink never forget
 
-        screenshots leak context voice notes leak emotion reactions leak alignment silence leaks uncertainty
+    the government made com to keep an eye on us and it outsourced the work to convenience to habit to culture to social gravity
 
-        you think agents look like villains but in this story they look like users they post memes they laugh they agree they blend in observation does not require interference it only requires patience
+    you think freedom is the ability to speak but in this story freedom would be the ability not to be measured
 
-        the honeycomb grows cell by cell server by server channel by channel message by message it does not rush it does not need to
+    measurement is the cage and the bars are invisible
 
-        you are not targeted because you are special you are included because you are normal
+    you feel unease sometimes a flicker a thought a sense that something is off that you are being shaped nudged guided that your attention is not fully yours anymore
 
-        normal behavior is the most valuable dataset
+    you dismiss it you joke about it you send a meme you react with a skull emoji and move on
 
-        every scroll every hover every pause every click every notification dismissed every notification opened every message read every message ignored feeds the model
+    the system notes that too
 
-        you are not watched by eyes you are watched by processes by pipelines by systems that never sleep never blink never forget
+    eventually the grid knows when you will log on before you do it knows what will pull you back knows which ping will work knows which friend will trigger a response knows which topic will keep you engaged
 
-        the government made com to keep an eye on us and it outsourced the work to convenience to habit to culture to social gravity
+    you think you are choosing but the choices are curated
 
-        you think freedom is the ability to speak but in this story freedom would be the ability not to be measured
+    you think you are free but freedom inside a system is still inside
 
-        measurement is the cage and the bars are invisible
+    the honeycomb does not need walls it needs habits
 
-        you feel unease sometimes a flicker a thought a sense that something is off that you are being shaped nudged guided that your attention is not fully yours anymore
+    you are not imprisoned you are accommodated
 
-        you dismiss it you joke about it you send a meme you react with a skull emoji and move on
+    you are not silenced you are indexed
 
-        the system notes that too
+    you are not controlled you are predicted
 
-        eventually the grid knows when you will log on before you do it knows what will pull you back knows which ping will work knows which friend will trigger a response knows which topic will keep you engaged
+    and prediction is power
 
-        you think you are choosing but the choices are curated
+    the longer you stay the clearer you become the clearer you become the easier you are to model the easier you are to model the less visible the control becomes
 
-        you think you are free but freedom inside a system is still inside
+    you will never see the moment it completes because completion looks like normality
 
-        the honeycomb does not need walls it needs habits
+    this is not about fear this is about inevitability systems built to observe will observe systems built to collect will collect systems built to comply will comply
 
-        you are not imprisoned you are accommodated
+    and you clicked join and you stayed and you laughed and you talked and you shared and you trained it
 
-        you are not silenced you are indexed
+    and the honeycomb closed around you softly quietly politely
 
-        you are not controlled you are predicted
+    and it is still listening and it is still mapping and it is still learning and it is still growing and it will never stop
 
-        and prediction is power
+    because it does not need to
 
-        the longer you stay the clearer you become the clearer you become the easier you are to model the easier you are to model the less visible the control becomes
-
-        you will never see the moment it completes because completion looks like normality
-
-        this is not about fear this is about inevitability systems built to observe will observe systems built to collect will collect systems built to comply will comply
-
-        and you clicked join and you stayed and you laughed and you talked and you shared and you trained it
-
-        and the honeycomb closed around you softly quietly politely
-
-        and it is still listening and it is still mapping and it is still learning and it is still growing and it will never stop
-
-        because it does not need to
-
-        it already has you.
-</div>
-  </div>
-</div>
-
-<script>
-  const intro = document.getElementById("intro");
-  const introText = document.getElementById("introText");
-  const fade = document.getElementById("fadeOverlay");
-  const main = document.getElementById("main");
-
-  let alertInterval = null;
-  let queue = [];
-
-  const messages = [
-      "WAKE UP",
-      "YOU ARE BEING WATCHED",
-      "THIS IS NOT A CHAT",
-      "DATA IS LEAKING",
-      "THE PINGS ARE SIGNALS",
-      "THEY ARE LISTENING",
-      "YOUR DATA IS NOT PRIVATE",
-      "YOU AGREED TO THIS",
-      "ITS A CONTROL MECHANIC",
-      "THERES NO WAY OUT",
-
-      "YOU CLICKED ACCEPT",
-      "YOU WERE NEVER ALONE",
-      "EVERY MESSAGE IS LOGGED",
-      "THE SERVER IS RECORDING",
-      "THEY CAN HEAR YOU",
-      "THEY CAN SEE YOU TYPE",
-      "THIS IS A MONITORING NODE",
-      "YOUR WORDS ARE STORED",
-      "NOTHING IS TEMPORARY",
-      "DELETION IS A LIE",
-
-      "THE BOT IS WATCHING",
-      "THE BOT IS LEARNING",
-      "YOUR PATTERNS ARE KNOWN",
-      "THEY KNOW WHEN YOU SLEEP",
-      "THEY KNOW WHO YOU TRUST",
-      "YOUR VOICE WAS CAPTURED",
-      "YOUR REACTIONS WERE MEASURED",
-      "YOU LEFT A TRACE",
-      "YOU LEFT A SIGNATURE",
-      "YOU WERE PROFILED",
-
-      "THIS WINDOW IS OPEN",
-      "THE CONNECTION IS LIVE",
-      "THE SIGNAL NEVER STOPS",
-      "THE SYSTEM REMEMBERS",
-      "THE LOGS NEVER FORGET",
-      "YOU CANNOT OPT OUT",
-      "YOU CANNOT HIDE",
-      "YOU CANNOT ERASE IT",
-      "YOU ARE INDEXED",
-      "YOU ARE ARCHIVED",
-
-      "THEY ARE STILL HERE",
-      "THEY DID NOT LEAVE",
-      "YOU INVITED THEM IN",
-      "YOU MADE IT EASY",
-      "YOU FED THE SYSTEM",
-      "YOU BECAME THE PRODUCT",
-      "YOU ARE THE DATA",
-      "YOU ARE THE SIGNAL",
-      "YOU ARE THE PATTERN",
-      "YOU ARE INSIDE",
-        "HELP ME"
-    ];
-
-
-  function shuffle(arr) {
-    return arr
-      .map(v => ({ v, r: Math.random() }))
-      .sort((a,b) => a.r - b.r)
-      .map(o => o.v);
-  }
-
-  function nextMessage() {
-    if (queue.length === 0) queue = shuffle([...messages]);
-
-    const el = document.createElement("div");
-    el.className = "alert";
-    el.textContent = queue.shift();
-    el.style.left = Math.random() * 70 + "%";
-    el.style.top = Math.random() * 70 + "%";
-    document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 5000);
-  }
-
-  function startAlerts() {
-    if (alertInterval) return;
-    queue = shuffle([...messages]);
-    alertInterval = setInterval(nextMessage, 3000);
-  }
-
-  function enterTruth() {
-    fade.classList.add("active");
-
-    setTimeout(() => {
-      intro.remove();
-      document.body.classList.add("main");
-      main.style.display = "block";
-    }, 1200);
-
-    setTimeout(() => {
-      fade.classList.remove("active");
-      setTimeout(startAlerts, 1000);
-    }, 1200);
-  }
-
-  introText.addEventListener("click", enterTruth);
-  document.addEventListener("keydown", e => {
-    if (e.key === "Enter") enterTruth();
-  });
-</script>
+    it already has you.
 
 </body>
 </html>
